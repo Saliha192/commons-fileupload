@@ -55,22 +55,22 @@ final class QuotedPrintableDecoderTestCase {
     }
 
     @Test
-    public void testBasicEncodeDecode() throws Exception {
+    void testBasicEncodeDecode() throws Exception {
         assertEncoded("= Hello there =\r\n", "=3D Hello there =3D=0D=0A");
     }
 
     @Test
-    public void testEmptyDecode() throws Exception {
+    void testEmptyDecode() throws Exception {
         assertEncoded("", "");
     }
 
     @Test
-    public void testInvalidCharDecode() {
+    void testInvalidCharDecode() {
         assertThrows(IOException.class, () -> assertEncoded("=\r\n", "=3D=XD=XA"));
     }
 
     @Test
-    public void testInvalidQuotedPrintableEncoding() throws Exception {
+    void testInvalidQuotedPrintableEncoding() throws Exception {
         assertIOException("truncated escape sequence", "YWJjMTIzXy0uKn4hQCMkJV4mKCkre31cIlxcOzpgLC9bXQ==");
     }
 
