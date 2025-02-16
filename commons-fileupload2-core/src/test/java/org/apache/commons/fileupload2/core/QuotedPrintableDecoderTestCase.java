@@ -81,7 +81,7 @@ final class QuotedPrintableDecoderTestCase {
 
     @Test
     void testInvalidSoftBreak2() {
-        assertIOException("CR must be followed by LF", "=\rn");
+        assertIOException("CR must be followed  by LF", "=\rn");
     }
 
 
