@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  */
-public final class QuotedPrintableDecoderTestCase {
+final class QuotedPrintableDecoderTestCase {
 
     private static void assertEncoded(final String clearText, final String encoded) throws Exception {
         final var expected = clearText.getBytes(StandardCharsets.US_ASCII);
