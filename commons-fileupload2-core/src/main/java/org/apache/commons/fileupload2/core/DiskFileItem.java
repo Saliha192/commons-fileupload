@@ -436,7 +436,7 @@ public final class DiskFileItem implements FileItem<DiskFileItem> {
     /**
      * Gets the contents of the file as a String, using the default character encoding. This method uses {@link #get()} to retrieve the contents of the file.
      * <p>
-     * <strong>TODO</strong> Consider making this method throw UnsupportedEncodingException.
+
      * </p>
      *
      * @return The contents of the file, as a string.
