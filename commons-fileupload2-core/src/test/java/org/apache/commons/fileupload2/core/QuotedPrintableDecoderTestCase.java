@@ -70,17 +70,17 @@ final class QuotedPrintableDecoderTestCase {
     }
 
     @Test
-    void testInvalidQuotedPrintableEncoding() throws Exception {
+    void testInvalidQuotedPrintableEncoding() {
         assertIOException("truncated escape sequence", "YWJjMTIzXy0uKn4hQCMkJV4mKCkre31cIlxcOzpgLC9bXQ==");
     }
 
     @Test
-    void testInvalidSoftBreak1() throws Exception {
+    void testInvalidSoftBreak1()  {
         assertIOException("CR must be followed by LF", "=\r\r");
     }
 
     @Test
-    void testInvalidSoftBreak2() throws Exception {
+    void testInvalidSoftBreak2() {
         assertIOException("CR must be followed by LF", "=\rn");
     }
 
@@ -114,7 +114,7 @@ final class QuotedPrintableDecoderTestCase {
     }
 
     @Test
-    void testTruncatedEscape() throws Exception {
+    void testTruncatedEscape() {
         assertIOException("truncated", "=1");
     }
 
