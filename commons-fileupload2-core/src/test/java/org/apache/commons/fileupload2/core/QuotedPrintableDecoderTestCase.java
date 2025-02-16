@@ -84,6 +84,7 @@ public final class QuotedPrintableDecoderTestCase {
         assertIOException("CR must be followed by LF", "=\rn");
     }
 
+
     @Test
     public void testPlainDecode() throws Exception {
         // spaces are allowed in encoded data
