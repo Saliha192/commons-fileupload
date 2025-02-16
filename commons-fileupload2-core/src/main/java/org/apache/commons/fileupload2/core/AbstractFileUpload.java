@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
+
 
 import org.apache.commons.fileupload2.core.FileItemFactory.AbstractFileItemBuilder;
 import org.apache.commons.io.IOUtils;
@@ -494,7 +494,6 @@ public abstract class AbstractFileUpload<R, I extends FileItem<I>, F extends Fil
                     try {
                         fileItem.delete();
                     } catch (final Exception ignored) {
-
                     }
                 }
             }
