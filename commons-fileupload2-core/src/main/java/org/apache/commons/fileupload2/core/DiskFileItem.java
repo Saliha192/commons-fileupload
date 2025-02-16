@@ -98,7 +98,7 @@ public final class DiskFileItem implements FileItem<DiskFileItem> {
          */
         @Override
         public DiskFileItem get() {
-            final var diskFileItem = new DiskFileItem(getFieldName(), getContentType(), isFormField(), getFileName(), getBufferSize(), getPath(),
+            final var diskFileItem = new DiskFileItem(super.getFieldName(), super.getContentType(), super.isFormField(), getFileName(), getBufferSize(), super.getPath(),
                     getFileItemHeaders(), getCharset());
             final var tracker = getFileCleaningTracker();
             if (tracker != null) {
