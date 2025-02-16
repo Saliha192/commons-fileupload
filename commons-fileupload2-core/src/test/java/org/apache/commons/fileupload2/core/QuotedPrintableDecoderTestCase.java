@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  */
-public final class QuotedPrintableDecoderTestCase {
+final class QuotedPrintableDecoderTestCase {
 
     private static void assertEncoded(final String clearText, final String encoded) throws Exception {
         final var expected = clearText.getBytes(StandardCharsets.US_ASCII);
@@ -55,38 +55,38 @@ public final class QuotedPrintableDecoderTestCase {
     }
 
     @Test
-    public void testBasicEncodeDecode() throws Exception {
+    void testBasicEncodeDecode() throws Exception {
         assertEncoded("= Hello there =\r\n", "=3D Hello there =3D=0D=0A");
     }
 
     @Test
-    public void testEmptyDecode() throws Exception {
+    void testEmptyDecode() throws Exception {
         assertEncoded("", "");
     }
 
     @Test
-    public void testInvalidCharDecode() {
+    void testInvalidCharDecode() {
         assertThrows(IOException.class, () -> assertEncoded("=\r\n", "=3D=XD=XA"));
     }
 
     @Test
-    public void testInvalidQuotedPrintableEncoding() throws Exception {
+    void testInvalidQuotedPrintableEncoding() {
         assertIOException("truncated escape sequence", "YWJjMTIzXy0uKn4hQCMkJV4mKCkre31cIlxcOzpgLC9bXQ==");
     }
 
     @Test
-    public void testInvalidSoftBreak1() throws Exception {
+    void testInvalidSoftBreak1()  {
         assertIOException("CR must be followed by LF", "=\r\r");
     }
 
     @Test
-    public void testInvalidSoftBreak2() throws Exception {
+    void testInvalidSoftBreak2() {
         assertIOException("CR must be followed by LF", "=\rn");
     }
 
 
     @Test
-    public void testPlainDecode() throws Exception {
+    void testPlainDecode() throws Exception {
         // spaces are allowed in encoded data
         // There are special rules for trailing spaces; these are not currently implemented.
         assertEncoded("The quick brown fox jumps over the lazy dog.", "The quick brown fox jumps over the lazy dog.");
@@ -99,23 +99,23 @@ public final class QuotedPrintableDecoderTestCase {
      * @see <a href="https://issues.apache.org/jira/browse/CODEC-121">CODEC-121</a>
      */
     @Test
-    public void testSoftLineBreakDecode() throws Exception {
+    void testSoftLineBreakDecode() throws Exception {
         assertEncoded("If you believe that truth=beauty, then surely mathematics is the most " + "beautiful branch of philosophy.",
                 "If you believe that truth=3Dbeauty, then " + "surely=20=\r\nmathematics is the most beautiful branch of philosophy.");
     }
 
     @Test
-    public void testUnsafeDecode() throws Exception {
+    void testUnsafeDecode() throws Exception {
         assertEncoded("=\r\n", "=3D=0D=0A");
     }
 
     @Test
-    public void testUnsafeDecodeLowerCase() throws Exception {
+    void testUnsafeDecodeLowerCase() throws Exception {
         assertEncoded("=\r\n", "=3d=0d=0a");
     }
 
     @Test
-    public void testTruncatedEscape() throws Exception {
+    void testTruncatedEscape() {
         assertIOException("truncated", "=1");
     }
 
