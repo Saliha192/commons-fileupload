@@ -82,7 +82,7 @@ public final class DiskFileItem implements FileItem<DiskFileItem> {
             setBufferSize(DiskFileItemFactory.DEFAULT_THRESHOLD);
             setPath(PathUtils.getTempDirectory());
             setCharset(DEFAULT_CHARSET);
-            setCharsetDefault(DEFAULT_CHARSET);
+            super.setCharsetDefault(DEFAULT_CHARSET);
         }
 
         /**
