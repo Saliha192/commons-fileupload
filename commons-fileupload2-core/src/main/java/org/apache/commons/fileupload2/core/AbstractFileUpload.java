@@ -455,7 +455,7 @@ public abstract class AbstractFileUpload<R, I extends FileItem<I>, F extends Fil
         final List<I> itemList = new ArrayList<>();
         var successful = false;
         try {
-            final var fileItemFactory = Objects.requireNonNull(getFileItemFactory(), "No FileItemFactory has been set.");
+            final var localFileItemFactory = Objects.requireNonNull(getFileItemFactory(), "No FileItemFactory has been set.");
             final var buffer = new byte[IOUtils.DEFAULT_BUFFER_SIZE];
             getItemIterator(requestContext).forEachRemaining(fileItemInput -> {
                 if (itemList.size() == fileCountMax) {
