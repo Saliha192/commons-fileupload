@@ -494,7 +494,7 @@ public abstract class AbstractFileUpload<R, I extends FileItem<I>, F extends Fil
                     try {
                         fileItem.delete();
                     } catch (final Exception ignored) {
-                        // ignored TODO perhaps add to tracker delete failure list somehow?
+
                     }
                 }
             }
