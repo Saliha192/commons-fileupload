@@ -301,7 +301,7 @@ public abstract class AbstractFileUpload<R, I extends FileItem<I>, F extends Fil
      * @throws IOException         An I/O error occurred. This may be a network error while communicating with the client or a problem while storing the
      *                             uploaded content.
      */
-    public FileItemInputIterator getItemIterator(final RequestContext requestContext) throws FileUploadException, IOException {
+    public FileItemInputIterator getItemIterator(final RequestContext requestContext) throws IOException {
         return new FileItemInputIteratorImpl(this, requestContext);
     }
 
