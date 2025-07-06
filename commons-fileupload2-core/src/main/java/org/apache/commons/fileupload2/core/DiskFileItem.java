@@ -151,14 +151,12 @@ public final class DiskFileItem implements FileItem<DiskFileItem> {
                 final var sb = new StringBuilder();
                 for (var i = 0; i < fileName.length(); i++) {
                     final var c = fileName.charAt(i);
-                    switch (c) {
-                    case 0:
+                    if (c == 0) {
                         sb.append("\\0");
-                        break;
-                    default:
+                    } else {
                         sb.append(c);
-                        break;
                     }
+
                 }
                 throw new InvalidPathException(fileName, sb.toString(), indexOf0);
             }
