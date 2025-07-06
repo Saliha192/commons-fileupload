@@ -241,7 +241,7 @@ class FileItemInputIteratorImpl implements FileItemInputIterator {
         return findNextItem();
     }
 
-    protected void init(final AbstractFileUpload<?, ?, ?> fileUploadBase, final RequestContext initContext) throws FileUploadException, IOException {
+    protected void init(final AbstractFileUpload<?, ?, ?> fileUploadBase, final RequestContext initContext) throws IOException {
         final var contentType = requestContext.getContentType();
         if (null == contentType || !contentType.toLowerCase(Locale.ROOT).startsWith(AbstractFileUpload.MULTIPART)) {
             throw new FileUploadContentTypeException(String.format("the request doesn't contain a %s or %s stream, content type header is %s",
