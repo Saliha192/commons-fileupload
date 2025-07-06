@@ -124,7 +124,7 @@ class FileItemInputIteratorImpl implements FileItemInputIterator {
      * @return True, if an next item was found, otherwise false.
      * @throws IOException An I/O error occurred.
      */
-    private boolean findNextItem() throws FileUploadException, IOException {
+    private boolean findNextItem() throws IOException {
         if (eof) {
             return false;
         }
