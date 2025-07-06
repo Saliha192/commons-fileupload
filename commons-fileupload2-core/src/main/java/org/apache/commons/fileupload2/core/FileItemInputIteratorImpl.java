@@ -108,7 +108,7 @@ class FileItemInputIteratorImpl implements FileItemInputIterator {
      * @throws FileUploadException An error occurred while parsing the request.
      * @throws IOException         An I/O error occurred.
      */
-    FileItemInputIteratorImpl(final AbstractFileUpload<?, ?, ?> fileUploadBase, final RequestContext requestContext) throws FileUploadException, IOException {
+    FileItemInputIteratorImpl(final AbstractFileUpload<?, ?, ?> fileUploadBase, final RequestContext requestContext) throws IOException {
         this.fileUpload = fileUploadBase;
         this.sizeMax = fileUploadBase.getSizeMax();
         this.fileSizeMax = fileUploadBase.getFileSizeMax();
