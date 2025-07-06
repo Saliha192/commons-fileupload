@@ -211,7 +211,7 @@ class FileItemInputIteratorImpl implements FileItemInputIterator {
         return fileSizeMax;
     }
 
-    public MultipartInput getMultiPartInput() throws FileUploadException, IOException {
+    public MultipartInput getMultiPartInput() throws IOException {
         if (multiPartInput == null) {
             init(fileUpload, requestContext);
         }
