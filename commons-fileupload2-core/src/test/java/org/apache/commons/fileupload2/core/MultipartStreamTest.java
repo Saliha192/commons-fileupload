@@ -6,7 +6,7 @@
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -48,7 +48,7 @@ class MultipartStreamTest {
         final byte[] byteContents = request.getBytes(StandardCharsets.UTF_8);
         final InputStream input = new ByteArrayInputStream(byteContents);
         final byte[] boundary = "---1234".getBytes();
-        final MultipartInput mi = MultipartInput.builder().setInputStream(input).setBoundary(boundary).setPartHeaderSizeMax(100).get();
+        final MultipartInput mi = MultipartInput.builder().setInputStream(input).setBoundary(boundary).setMaxPartHeaderSize(100).get();
         assertNotNull(mi);
         try {
             boolean nextPart = mi.skipPreamble();

@@ -7,7 +7,7 @@
  (the "License"); you may not use this file except in compliance with
  the License.  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+      https://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-parent</artifactId>
-    <version>85</version>
+    <version>93</version>
   </parent>
   <artifactId>commons-fileupload2</artifactId>
   <version>2.0.0-M5-SNAPSHOT</version>
@@ -39,7 +39,6 @@
     <tag>HEAD</tag>
   </scm>
   <issueManagement>
-    <system>jira</system>
     <url>https://issues.apache.org/jira/browse/FILEUPLOAD</url>
   </issueManagement>
   <distributionManagement>
@@ -49,6 +48,10 @@
       <url>scm:svn:https://svn.apache.org/repos/infra/websites/production/commons/content/proper/commons-fileupload/</url>
     </site>
   </distributionManagement>
+  <ciManagement>
+    <system>GitHub</system>
+    <url>https://github.com/apache/commons-fileupload/actions</url>
+  </ciManagement>
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
@@ -60,6 +63,8 @@
     <commons.release.next>2.0.0</commons.release.next>
     <commons.release.desc>in the org.apache.commons.fileupload2 namespace for Java 11 or later</commons.release.desc>
     <!-- version 1.x -->
+    <!-- Override the default name -->
+    <commons.release.2.name>commons-fileupload-${commons.release.2.version}</commons.release.2.name>
     <commons.release.2.version>1.6.0</commons.release.2.version>
     <commons.release.2.desc>in the org.apache.commons.fileupload namespace for Java 8 or later</commons.release.2.desc>
     <!-- project properties -->
@@ -74,8 +79,8 @@
     <commons.osgi.import>!javax.portlet,*</commons.osgi.import>
     <commons.osgi.dynamicImport>javax.portlet</commons.osgi.dynamicImport>
     <commons.servlet-api.version>2.5</commons.servlet-api.version>
-    <commons.io.version>2.19.0</commons.io.version>
-    <commons.lang3.version>3.17.0</commons.lang3.version>
+    <commons.io.version>2.21.0</commons.io.version>
+    <commons.lang3.version>3.20.0</commons.lang3.version>
     <japicmp.skip>true</japicmp.skip>
     <animal.sniffer.skip>true</animal.sniffer.skip>
     <commons.javadoc.javaee.link>https://jakarta.ee/specifications/platform/9.1/apidocs/</commons.javadoc.javaee.link>
@@ -118,10 +123,10 @@
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
           <configuration>
-            <excludes>
-              <exclude>site-content/**</exclude>
-              <exclude>src/checkstyle/license-header.txt</exclude>
-            </excludes>
+            <inputExcludes>
+              <inputExclude>site-content/**</inputExclude>
+              <inputExclude>src/checkstyle/license-header.txt</inputExclude>
+            </inputExcludes>
           </configuration>
         </plugin>
         <!-- override skip property of parent pom for new major release -->
